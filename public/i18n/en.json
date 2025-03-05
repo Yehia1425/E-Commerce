@@ -1,0 +1,27 @@
+{
+    "home":"Home",
+    "products":"Products",
+    "categories":"Categories",
+    "brands":"Brands",
+    "login":"Login",
+    "logout":"LogOut",
+    "popular catgories":"Popular Catgories",
+    "popular products":"Popular Catgories",
+    "login now ":"Log Now",
+    "name":"Name",
+    "rePassword":"RePassword",
+    "phone":"Phone",
+    "signup":"SignUp",
+    "register now ":"Register Now",
+    "email":"Email",
+    "password":"Password",
+    "Signin":"SignIn",
+    "forget password":"Forget Password",
+    "add to cart":"Add To Cart",
+    "navbar":{
+
+        "register":"Register"
+
+
+    }
+}

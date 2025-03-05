@@ -1,0 +1,63 @@
+<nav class="bg-white  fixed flex z-[99] h-[88px] container max-w-full items-center justify-between shadow-xl transition-all duration-300  px-16 " [class.p-4]="!isScrolling" >
+    
+<div class="logo">
+  <a routerLink="/home" class="text-[2rem] text-main-color">
+    Trendify 
+  </a>
+</div>
+
+
+<div class="desktop-links hidden lg:block">
+  @if (isLogin()) {
+    <ul class=" flex gap-7">
+      <li>
+       <a routerLink="/home" routerLinkActive="bg-[#8b5e35] rounded-lg text-white " class=" block text-[1.125rem] px-2 py-1  ng-star-inserted text-black  " aria-current="page">{{'home'| translate}}</a>
+      </li>
+      <li>
+        <a routerLink="/products" routerLinkActive="bg-[#8b5e35] text-white  rounded-lg"  class=" block text-[1.125rem] px-2 py-1  ng-star-inserted text-black  " aria-current="page">{{'products'| translate}}</a>
+      </li>
+
+
+      <li>
+        <a  routerLink="/brands" routerLinkActive="bg-[#8b5e35] text-white rounded-lg"  class="block text-[1.125rem] px-2 py-1  ng-star-inserted text-black " aria-current="page">{{'brands'| translate}}</a>
+      </li>
+
+
+    </ul>
+  }
+  
+</div>
+    
+        
+
+
+       <div>
+        <ul class=" ms-auto capitalize flex flex-col p-4  mt-4 border border-gray-100  rounded-lg-lg md:flex-row md:space-x-0 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700">
+
+          
+          @if (!isLogin()) {
+            <li>
+              <a routerLink="/login" routerLinkActive="bg-red-600  rounded-lg"  class="block py-2 px-3 text-white  rounded-lg-sm  " aria-current="page">{{'login'| translate}}</a>
+            </li>
+            <li>
+              <a routerLink="/Register" routerLinkActive="bg-red-600  rounded-lg"  class="block py-2 px-3  text-white  rounded-lg-sm  " aria-current="page">{{'navbar.register'| translate}}</a>
+            </li>
+          }
+          @else {
+            <li class="relative">
+              <a routerLink="/cart" routerLinkActive="text-green-600  rounded-lg"  class="block py-2 px-3 pi pi-shopping-cart text-main-color text-2xl text-white   " aria-current="page"><i class="fas fa-light fa-cart-shopping"></i></a>
+              <span class="inline-flex items-center rounded-md bg-[#8B5E35] px-2 py-1 text-xs font-medium text-white ring-1 ring-green-600/20 ring-inset top-0 left-0 absolute">{{countCart()}}</span>
+            </li>
+            <li>
+              <a (click)="out()" routerLink="/LogOut" routerLinkActive="bg-[#8b5e35]  rounded-lg" role="button"  class="  block text-[1.125rem] px-2 py-1  ng-star-inserted text-black   " aria-current="page">{{'logout'| translate}}</a>
+            </li>
+          }
+        </ul>
+       </div>
+
+
+  </nav>
+
+
+  
+  

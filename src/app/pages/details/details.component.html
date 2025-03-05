@@ -1,0 +1,71 @@
+
+<section class="grid md:grid-cols-4 m-28 #F6F6F6 my-40  ">
+    <section>
+        @for (deta of detailsProduct?.images; track $index) {
+        <div class="product-images w-full sm:w-[75px] order-last sm:order-first ">
+            <div class="flex flex-row sm:flex-col gap-3 justify-center sm:justify-start">
+                  <div class="img-holder w-[65px] sm:w-[75px] rounded-2xl border border-main-color ng-star-inserted">
+                   <img class="rounded-2xl w-full" [src]="deta" [alt]="detailsProduct?.title">
+               </div>
+            </div>
+           </div>
+        }
+    </section>
+    
+    
+    @if (detailsProduct) {
+        <section class="product-details border-black rounded-md gap-5  ">
+            <div class="flex flex-row    ">
+                <div class=""> 
+                    <div class="w-full  relative">
+                        <img [src]="detailsProduct.imageCover" class="w-full h-[500px] " [alt]="detailsProduct.title">
+                    </div>
+                </div> 
+            </div>
+        </section>
+    }
+
+    <section>
+        @if (detailsProduct) {
+           <div class="flex ">
+       <div class="justify-end items-end">
+           <span class="flex items-center mb-1"><i class="fas fa-star text-yellow-300"></i>{{detailsProduct.ratingsAverage}}</span>
+           <h2 class="text-[1.5rem] sm:text-[2rem] text-text-color font-semibold mb-3 ">  {{detailsProduct.title}}</h2>
+           <p class="text-[#A7B2A3] mb-8">{{detailsProduct.description}}</p>
+           <p class=" mb-4"> Quantity: {{detailsProduct.quantity}}</p>
+           <p class=" mb-4"> Price: {{detailsProduct.price}}</p>
+       </div>
+           </div>
+           <button (click)="addcart(detailsProduct.id)" class="bg-[#8b5e35] text-white py-2 px-10 border rounded w-full">Add To Cart</button>
+        }
+
+       </section>
+
+    
+</section>
+
+
+<div class="text-center mb-14">
+    <button routerLink="/products" class=" text-white py-2 px-10 border text-center bg-[#8b5e35] rounded-lg mt-8 "> Go To Shopping </button>
+</div>
+
+
+
+
+
+<!-- <div>
+        
+    <h2>{{detailsProduct.title}}</h2>
+    <p >{{detailsProduct.description}}</p>
+    <span>{{detailsProduct.category.name}}</span>
+    <div class="flex justify-between items-center">
+        <span>{{detailsProduct.price}}EGP</span>
+        <div class="flex items-center">
+          <i class="fas fa-star text-yellow-300"></i>
+          <span class="text-gray-500">{{detailsProduct.ratingsAverage}}</span>
+        </div>
+      
+      </div>
+
+
+</div> --> 

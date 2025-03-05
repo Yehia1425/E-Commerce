@@ -1,0 +1,76 @@
+<section class="container max-w-full min-h-screen px-28 py-40  #F6F6F6  ">
+
+    <div class="flex justify-between mb-6 items-center ng-star-inserted px-24">
+        <h2 class="text-text-color text-[40px] flex items-center">
+            Shop Cart
+        </h2>
+        
+        <button (click)="clear()" class="py-3 h-fit px-5 bg-[#8b5e35] text-white  duration-300 transition-colors rounded-md text-sm flex items-center ng-star-inserted">Clear Cart <i class="pi pi-trash "></i> </button>
+    </div>
+    <div class="shadow-lg px-5">
+       <div class="text-[40px]">
+        Total Cart Price : {{cartDetails.totalCartPrice}} EGP
+       </div>
+        @for (prod of cartDetails.products; track prod.product.id){
+        <div class="grid grid-col-2 lg:grid-cols-[1fr_350px] gap-5 relative ng-star-inserted">
+            <div class="flex flex-col rounded-[10px] bg-white h-fit">
+                <div class="flex items-center gap-3 sm:gap-5 py-3 px-2 sm:p-4 ng-star-inserted">
+                    <div class="sm:w-40 max-w-32 relative "><img [src]="prod.product.imageCover" class="w-full h-[100px] object-contain" [alt]="prod.product.imageCover"></div>
+                    <div class="flex justify-between items-center flex-col sm:flex-row gap-4 w-full">
+                        <div class="left flex flex-row sm:flex-col items-center sm:items-start justify-between sm:justify-start w-full gap-2">
+                            <div>
+                                <span class="text-secText-color font-medium text-xs sm:text-sm text-nowrap">{{prod.product.title}}</span>
+                                <h4 class="text-text-color font-medium text-base sm:text-[1.25rem] mt-1"> {{prod.product.title}} </h4>
+                                <span class="flex items-center mb-1"><i class="fas fa-star text-yellow-300">{{prod.product.ratingsAverage}}</i></span>
+                                <button (click)="removeItem(prod.product.id)"><i class="fas fa-trash-can text-[#8b5e35]"></i> Remove</button>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="flex items-center justify-end gap-3">
+  
+
+                                <button (click)="upadtaCart(prod.product.id,prod.count+1)" class="text-3xl text-center text-[black]"><i class="fa-regular fa-square-plus"></i></button>
+                                <span>{{prod.count}}</span>
+                                <button (click)="upadtaCart(prod.product.id,prod.count-1)" class="text-3xl text-black"><i class="fa-regular fa-square-minus"></i></button>
+                            </div>
+                        </div>
+  
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+  
+    <button [routerLink]="['/checkout', cartDetails._id]" class="bg-[#8b5e35] px-6 py-3 text-center text-white rounded-lg">Payment</button>
+    </div>
+</section>
+
+<!-- 
+    <h3 class="text-green-600">Total Cart Price : {{cartDetails.totalCartPrice}} EGP</h3>
+
+    @for (prod of cartDetails.products; track prod.product.id) {
+        <div class="grid md:grid-cols-[10%_minmax(0,1fr)] gap-4 borderb">
+            <div>
+                <img [src]="prod.product.imageCover" class="w-full h-[100px] object-contain" [alt]="prod.product.title">
+            </div>
+            <div class="flex justify-between items-center" >
+                <div>
+                    <h3>{{prod.product.title}}</h3>
+                    <h4 class="text-green-600">Price:{{prod.price }} EGP</h4>
+                    <button (click)="removeItem(prod.product.id)"><i class="fas fa-trash-can text-green-600"></i> Remove</button>
+    
+                </div>
+                <div class="flex items-center gap-3">
+                    <button (click)="upadtaCart(prod.product.id,prod.count+1)" class="text-3xl text-green-600"><i class="fa-regular fa-square-plus"></i></button>
+                    <span>{{prod.count}}</span>
+                    <button (click)="upadtaCart(prod.product.id,prod.count-1)" class="text-3xl text-green-600"><i class="fa-regular fa-square-minus"></i></button>
+                </div>
+    
+            </div>
+        </div>
+    }
+
+
+
+    <button [routerLink]="['/checkout', cartDetails._id]" class="bg-green-600 px-6 py-1 text-white rounded-lg">Payment</button> -->
+

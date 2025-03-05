@@ -1,0 +1,41 @@
+<section class="w-full  rounded-2xl p-6 my-40">
+    <div class="text-center">
+        <h2 class="text-[#8b5e35] text-[20px] ">Thank you</h2>
+        <p class="text-[#8b5e35] text-[20px] "> Your order has been </p>
+    </div>
+
+    @for (order of allOrder(); track $index) {
+        <div >
+            <p class="  text-[45px] text-center ">TotalOrderPrice: {{order.totalOrderPrice}}</p>
+         
+        
+<div class="flex justify-center  mb-6  ng-star-inserted  ">
+    @for (cart of order.cartItems; track $index) {
+        <div class="rounded-lg bg-gray-50 dark:bg-gray-950 p-4 text-center ng-star-inserted">
+            <div class="relative ng-star-inserted justify-start items-start">
+                <img [src]="cart.product.imageCover" class="rounded-lg h-[250px] object-contain" [alt]="cart.product.title">
+            </div>
+ <div class="justify-end items-end">
+    <p class="text-sm text-[#8b5e35]">Title: {{cart.product.title}} </p>
+    <p class="text-sm text-[#8b5e35]">RatingsAverage: {{cart.product.ratingsAverage}}</p>
+    <p class="text-sm text-[#8b5e35]">RatingsQuantity: {{cart.product.ratingsQuantity}}</p>
+    <p class="text-sm text-[#8b5e35]">Count: {{cart.count}}</p>
+    <!-- <p class="text-sm text-[#8b5e35]">Date:</p> -->
+    <p class="text-sm text-[#8b5e35]">Price: {{cart.price}}</p>
+    <p class="text-sm text-[#8b5e35]">PaymentMethodType: {{order.paymentMethodType}}</p>
+    
+ </div>
+        </div>
+      }
+</div>
+
+   
+           </div>
+    }
+  
+    
+<div class="mt-6 text-center">
+    <button routerLink="/home" class="rounded-lg bg-black dark:bg-white dark:text-black px-6 py-2 text-white transition hover:bg-gray-800" tabindex="0">Continue Shopping</button>
+</div>
+
+</section>
