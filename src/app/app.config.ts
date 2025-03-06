@@ -19,7 +19,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }),
-     provideRouter(routes,withViewTransitions() , withHashLocation() ,withViewTransitions() , withInMemoryScrolling({scrollPositionRestoration:"top"})), provideClientHydration(withEventReplay()),
+     provideRouter(routes,withViewTransitions()),
       provideClientHydration(withEventReplay()),
       provideHttpClient(withFetch(),withInterceptors([headersInterceptor,errorInterceptor,loadingInterceptor])),
       provideAnimations(),
